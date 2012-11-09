@@ -1,0 +1,63 @@
+<head>
+  <title>screwdriver</title>
+</head>
+
+<template name="input">
+<form id="userform" class="form-inline">
+   <input id="username" type="text"/>
+   <button type="submit" class="btn btn-primary">GET ALL THE BADGES!</button>
+   </form>
+</template>
+
+<template name="badges">
+  {{#each achievements}}
+              <div class="span4">
+<h2>{{name}}</h2>
+<p>{{description}}</p>
+<img src="{{badge}}" />
+              </div><!--/span-->
+{{/each}}
+</template>
+
+<body>
+
+  <div class="navbar navbar-inverse navbar-fixed-top">
+     <div class="navbar-inner">
+        <div class="container-fluid">
+           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+           </a>
+           <a class="brand" href="#">Screwdriver</a>
+           <div class="nav-collapse collapse">
+              <p class="navbar-text pull-right">
+              {{loginButtons}}
+              </p>
+              <ul class="nav">
+                 <li class="active"><a href="#">Home</a></li>
+                 <li><a href="#about">About</a></li>
+              </ul>
+           </div><!--/.nav-collapse -->
+        </div>
+     </div>
+  </div>
+
+  <div class="container-fluid">
+     <div class="row-fluid">
+        <div class="span2">
+           <div class="well sidebar-nav">
+              <ul class="nav nav-list">
+                 <li class="nav-header">Achievements</li>
+                 <li>Coderwall</li>
+              </ul>
+           </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span10">
+           {{> input}}
+           <div class="row-fluid">
+                 {{> badges}}
+           </div><!--/row-->
+        </div><!--/span-->
+     </div><!--/row-->
+</body>
