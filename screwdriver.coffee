@@ -14,9 +14,9 @@ if Meteor.isClient
     Template.badges.achievements = Achievements.find()
 
     Template.input.events {
-       'submit #userform': (event, template) ->
-          Session.set "username", template.find("#username").value
-          false
+       'keyup #username': _.debounce (event, template) -> 
+            Session.set "username", template.find("#username").value
+          , 300
        }
 
 if Meteor.isServer
